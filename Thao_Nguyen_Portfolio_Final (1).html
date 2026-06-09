@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thao Nguyen (Audrey) — Brand Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a1a18;
+  --ink2:#4a4a46;
+  --ink3:#888780;
+  --paper:#faf9f6;
+  --accent:#D85A30;
+  --accent-light:#FAECE7;
+  --rule:rgba(26,26,24,0.12);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;border-bottom:0.5px solid var(--rule);position:sticky;top:0;background:var(--paper);z-index:100}
+.nav-name{font-family:var(--serif);font-size:1.1rem;letter-spacing:0.01em}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;font-weight:400}
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;border-bottom:0.5px solid var(--rule)}
+.hero-left{padding:4rem 3rem 4rem;display:flex;flex-direction:column;justify-content:center;border-right:0.5px solid var(--rule)}
+.hero-eyebrow{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.5rem}
+.hero-headline{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.5rem);line-height:1.05;margin-bottom:2rem;color:var(--ink)}
+.hero-headline em{font-style:italic;color:var(--accent)}
+.hero-body{font-size:15px;color:var(--ink2);line-height:1.75;max-width:420px;margin-bottom:2.5rem}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:12px 24px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;font-family:var(--sans);transition:background 0.2s}
+.hero-cta:hover{background:var(--accent)}
+.hero-right{padding:4rem 3rem;display:flex;flex-direction:column;justify-content:flex-end;gap:0}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;height:100%}
+.stat-cell{padding:2rem 1.5rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;justify-content:flex-end}
+.stat-num{font-family:var(--serif);font-size:3rem;line-height:1;color:var(--ink);margin-bottom:0.5rem}
+.stat-label{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em;line-height:1.4}
+.stat-cell.accent{background:var(--accent);border-color:var(--accent)}
+.stat-cell.accent .stat-num{color:#fff}
+.stat-cell.accent .stat-label{color:rgba(255,255,255,0.75)}
+
+/* SECTION BASE */
+section{padding:5rem 3rem;border-bottom:0.5px solid var(--rule)}
+.section-header{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem}
+.section-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);min-width:80px}
+.section-title{font-family:var(--serif);font-size:2.2rem;color:var(--ink)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-body{font-size:15px;color:var(--ink2);line-height:1.8}
+.about-body p+p{margin-top:1rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
+.tag{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border:0.5px solid var(--rule);color:var(--ink2)}
+.tag.hot{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+
+/* CASE STUDIES */
+.case-studies-list{display:flex;flex-direction:column;gap:0}
+.case-item{display:grid;grid-template-columns:1fr;padding:3rem 0;border-top:0.5px solid var(--rule)}
+.case-item:last-child{border-bottom:0.5px solid var(--rule)}
+.case-title{font-family:var(--serif);font-size:1.8rem;color:var(--ink);margin-bottom:0.5rem}
+.case-meta{display:flex;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.case-company{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0.02em}
+.case-type{font-size:12px;color:var(--ink3);letter-spacing:0.04em}
+.case-body{font-size:15px;color:var(--ink2);line-height:1.8;margin-bottom:1.5rem}
+.case-body p+p{margin-top:1rem}
+.case-highlight{display:inline;background:var(--accent-light);color:var(--accent);font-weight:500}
+.case-links{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
+.case-link{font-size:13px;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:500;transition:border-color 0.2s}
+.case-link:hover{border-bottom-color:var(--accent)}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:2.5rem 0;border-top:0.5px solid var(--rule)}
+.exp-item:last-child{border-bottom:0.5px solid var(--rule)}
+.exp-meta{padding-top:0.25rem}
+.exp-period{font-size:12px;color:var(--ink3);letter-spacing:0.04em;margin-bottom:0.5rem}
+.exp-company{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0.02em}
+.exp-industry{font-size:12px;color:var(--ink3);margin-top:2px}
+.exp-title{font-family:var(--serif);font-size:1.3rem;margin-bottom:0.75rem;color:var(--ink)}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.exp-bullets li{font-size:14px;color:var(--ink2);padding-left:1rem;position:relative;line-height:1.6}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--ink3);font-size:12px;top:2px}
+.exp-bullets li strong{font-weight:500;color:var(--ink)}
+.exp-highlight{display:inline;background:var(--accent-light);color:var(--accent);font-weight:500}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.skill-block{padding:1.75rem;border:0.5px solid var(--rule)}
+.skill-block-title{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:0.5px solid var(--rule)}
+.skill-list{display:flex;flex-direction:column;gap:0.4rem}
+.skill-list span{font-size:14px;color:var(--ink2)}
+.tools-row{margin-top:2rem;padding:1.5rem;border:0.5px solid var(--rule);background:#fff}
+.tools-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem}
+.tools-items{display:flex;flex-wrap:wrap;gap:8px}
+.tool-badge{font-size:12px;padding:4px 10px;background:var(--accent-light);color:var(--accent);font-weight:400}
+
+/* WORK SAMPLES */
+.samples-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2rem}
+.sample-card{border:0.5px solid var(--rule);padding:2rem}
+.sample-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.sample-title{font-family:var(--serif);font-size:1.3rem;color:var(--ink)}
+.sample-type{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-top:0.3rem;display:block}
+.sample-desc{font-size:14px;color:var(--ink2);margin-bottom:1rem;line-height:1.6}
+.sample-link{font-size:13px;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:500;transition:border-color 0.2s}
+.sample-link:hover{border-bottom-color:var(--accent)}
+
+/* CONTACT */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-headline{font-family:var(--serif);font-size:2.8rem;line-height:1.1;color:var(--ink)}
+.contact-headline em{font-style:italic;color:var(--accent)}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:0.5px solid var(--rule);text-decoration:none;color:var(--ink);font-size:14px;transition:border-color 0.2s}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+.contact-link-label{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:2px}
+.contact-link-val{font-size:14px;color:var(--ink)}
+
+/* FOOTER */
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+.footer-note{font-size:12px;color:var(--ink3);letter-spacing:0.04em}
+
+/* SMOOTH SCROLL */
+html{scroll-behavior:smooth}
+
+@media(max-width:768px){
+  nav{flex-direction:column;gap:1rem}
+  .nav-links{flex-direction:column;gap:0.5rem}
+  .hero{grid-template-columns:1fr}
+  .hero-left{border-right:none}
+  .about-grid,.contact-inner,.samples-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr}
+}
+
+@media print{
+  nav,footer{display:none}
+  .hero{min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Thao Nguyen (Audrey)</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#case-studies">Case Studies</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0;border-bottom:0.5px solid var(--rule)">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Brand Marketing · Ho Chi Minh City</p>
+    <h1 class="hero-headline">Building brands<br>people <em>remember</em>.</h1>
+    <p class="hero-body">Marketing professional with nearly 4 years turning audience insights into campaigns that move people — across Vietnam & Philippines markets, from CRM journeys to influencer storytelling to product design.</p>
+    <button class="hero-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in touch →</button>
+  </div>
+  <div class="hero-right" style="padding:0">
+    <div class="hero-stats">
+      <div class="stat-cell accent">
+        <div class="stat-num">350%</div>
+        <div class="stat-label">Zalo OA follower growth through personalised broadcast</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5%</div>
+        <div class="stat-label">Average social conversion rate on paid & organic campaigns</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">90%</div>
+        <div class="stat-label">Member events fully booked — consistent sellouts</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3–5%</div>
+        <div class="stat-label">Email open & CTR improvement across CRM initiatives</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">About</span>
+    <h2 class="section-title">The full picture</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>I'm a marketing generalist who leans deep into brand — the clarity of positioning, the texture of messaging, and the discipline of consistency across every touchpoint.</p>
+      <p>At Accor Plus, I managed integrated campaigns for two markets simultaneously, orchestrating multi-channel strategies across digital, CRM, influencer partnerships, and experiential events. At SparkMinds, I built brand identity from scratch and ran the full content & design engine — from brand guidelines to UI/UX design for blockchain products.</p>
+      <p>My edge is <span class="exp-highlight">connecting brand strategy to execution</span>: I can write the brief, direct the content, design the interface, analyse the numbers, and iterate — without needing to hand off between silos.</p>
+      <p><em>"Execution without brand clarity is just noise."</em> That's the principle I operate from.</p>
+    </div>
+    <div>
+      <p style="font-size:13px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:1rem">Key strengths</p>
+      <div class="about-tags">
+        <span class="tag hot">Campaign Strategy</span>
+        <span class="tag">Brand Communication</span>
+        <span class="tag">CRM & Email</span>
+        <span class="tag hot">Content Direction</span>
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Multi-market execution</span>
+        <span class="tag hot">Cross-functional collaboration</span>
+        <span class="tag">Event Coordination</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="case-studies">
+  <div class="section-header">
+    <span class="section-label">Work</span>
+    <h2 class="section-title">Case studies</h2>
+  </div>
+
+  <div class="case-studies-list">
+    
+    <!-- Case 1: Accor Plus -->
+    <div class="case-item">
+      <h3 class="case-title">Integrated Campaign Strategy</h3>
+      <div class="case-meta">
+        <span class="case-company">Accor Plus (Accor Group)</span>
+        <span class="case-type">Oct 2024 – Apr 2026 · Vietnam & Philippines</span>
+      </div>
+      <div class="case-body">
+        <p><strong>Challenge:</strong> A hospitality loyalty program needed unified strategy to drive member acquisition, engagement, and retention across two distinct markets with different consumer behaviors. The brand had strong hotel partnerships but needed a cohesive omnichannel approach.</p>
+        
+        <p><strong>What I did:</strong></p>
+        <ul style="list-style:none;padding-left:0;margin:1rem 0">
+          <li style="margin-bottom:0.7rem">• <strong>Multi-Market Campaign Orchestration</strong> — Planned and executed integrated campaigns spanning email, social media (Facebook, Instagram, Zalo OA), paid ads, and partnerships with 100+ hotel properties. Each campaign was <span class="case-highlight">localized for market insights</span> while maintaining global brand consistency.</li>
+          <li style="margin-bottom:0.7rem">• <strong>CRM-Driven Customer Journey</strong> — Collaborated with stakeholders to optimize lifecycle marketing across email marketing, website offers, and personalized broadcasts. Contributed to achieving <span class="case-highlight">3-5% improvements</span> in email open and click-through rates.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Content & Social Strategy</strong> — Developed creative assets and directed content strategy for paid and organic campaigns, achieving average conversion rates of <span class="case-highlight">up to 5%</span> and contributing to <span class="case-highlight">350% growth in Zalo OA</span> follower base.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Influencer & Partnership Coordination</strong> — Coordinated influencer collaborations in Vietnam & Philippines for both sales-driven and brand awareness campaigns, managing content approval and ensuring alignment with brand guidelines.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Event Curation</strong> — Co-organized exclusive member events with <span class="case-highlight">~90% fully booked</span> rate across multiple cities, directly contributing to member loyalty and lifetime value.</li>
+        </ul>
+        
+        <p><strong>Outcome:</strong> Successfully built a brand experience that scaled across two markets, demonstrating that <strong>localization without dilution</strong> is possible through strong strategic foundations.</p>
+      </div>
+      <div class="case-links">
+        <a href="#experience" class="case-link">Read detailed experience →</a>
+      </div>
+    </div>
+
+    <!-- Case 2: SparkMinds -->
+    <div class="case-item">
+      <h3 class="case-title">Brand & Product Design Collaboration</h3>
+      <div class="case-meta">
+        <span class="case-company">SparkMinds J.S.C</span>
+        <span class="case-type">Apr 2023 – Sep 2024 · Technology / Fintech</span>
+      </div>
+      <div class="case-body">
+        <p><strong>Challenge:</strong> A lean tech startup needed to establish brand credibility while simultaneously designing intuitive user interfaces for complex blockchain products. Required someone who could bridge <strong>brand communication</strong> and <strong>product design</strong> — ensuring brand story, visual identity, and user experience were aligned.</p>
+        
+        <p><strong>What I did:</strong></p>
+        <ul style="list-style:none;padding-left:0;margin:1rem 0">
+          <li style="margin-bottom:0.7rem">• <strong>Brand Identity from Scratch</strong> — Built company messaging, <span class="case-highlight">brand guidelines</span>, and visual identity. Developed content strategy for website, social channels, and all collateral (proposals, company profile, team CVs).</li>
+          <li style="margin-bottom:0.7rem">• <strong>Website & Content Strategy</strong> — Managed sparkminds.net using WordPress, restructuring information architecture for improved UX & SEO. Developed long-form content (1000+ words) supporting organic visibility.</li>
+          <li style="margin-bottom:0.7rem">• <strong>UI/UX Design for Fintech</strong> — Designed user interfaces for blockchain trading and wallet products (Maxbit, POPG), collaborating with Product Managers, Business Analysts, developers, and QA teams. <strong>Ensured design consistency</strong> across complex financial workflows.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Cross-Functional Bridge</strong> — Facilitated communication between CEO, business stakeholders, design, and technical teams. Translated business requirements into design specifications.</li>
+        </ul>
+        
+        <p><strong>Outcome:</strong> Delivered cohesive brand identity + production-ready design system for fintech products. Demonstrated that <strong>brand promise and product experience</strong> must be designed together to build user trust.</p>
+      </div>
+      <div class="case-links">
+        <a href="#work-samples" class="case-link">View work samples →</a>
+      </div>
+    </div>
+
+    <!-- Case 3: Influencer + Content -->
+    <div class="case-item">
+      <h3 class="case-title">Multi-Channel Content & Influencer Strategy</h3>
+      <div class="case-meta">
+        <span class="case-company">Cross-role (Accor Plus + SparkMinds + freelance)</span>
+        <span class="case-type">Ongoing · Vietnam & Philippines markets</span>
+      </div>
+      <div class="case-body">
+        <p><strong>Challenge:</strong> Building authentic brand awareness in competitive Southeast Asian markets requires more than influencer reach — it requires <strong>cultural relevance</strong> and <strong>strategic fit</strong>. Goal: coordinate influencer partnerships that felt earned, not forced, while maintaining brand safety and consistency.</p>
+        
+        <p><strong>What I did:</strong></p>
+        <ul style="list-style:none;padding-left:0;margin:1rem 0">
+          <li style="margin-bottom:0.7rem">• <strong>Influencer Selection & Vetting</strong> — Identified micro to macro influencers across Vietnam & Philippines, evaluating audience alignment and engagement authenticity beyond follower counts.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Campaign Direction</strong> — Developed campaign briefs that gave influencers creative freedom while protecting brand guidelines. Managed feedback cycles to ensure alignment with campaign objectives.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Multi-Campaign Types</strong> — Executed both sales-driven campaigns (conversion focus) and long-term brand awareness campaigns (association & perception focus).</li>
+          <li style="margin-bottom:0.7rem">• <strong>SEO Content Strategy</strong> — Developed long-form content for websites and blogs (1000+ words), supporting organic visibility across education, beauty, and tech sectors.</li>
+          <li style="margin-bottom:0.7rem">• <strong>Web Management</strong> — Managed WordPress sites across multiple industries, improving information architecture and conversion paths through strategic content placement.</li>
+        </ul>
+        
+        <p><strong>Outcome:</strong> Built <span class="case-highlight">15+ influencer partnerships</span> maintaining 100% brand safety. Demonstrated that <strong>relationship-based influencer marketing</strong> outperforms transactional partnerships.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work-samples">
+  <div class="section-header">
+    <span class="section-label">Artifacts</span>
+    <h2 class="section-title">Work samples</h2>
+  </div>
+
+  <div class="samples-grid">
+    <div class="sample-card">
+      <h3 class="sample-title">Maxbit UI/UX
+        <span class="sample-type">Design • Figma</span>
+      </h3>
+      <p class="sample-desc">Comprehensive UI design for blockchain trading platform. Dashboard, wallet management, and transaction flows. Designed in collaboration with PM, BA, Dev, and QA teams.</p>
+      <a href="https://www.figma.com/design/OSUUVPkWM2PhDsCamn7tUD/Latest-UI-Version--Copy-" class="sample-link" target="_blank">View in Figma →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Maxbit UI v2
+        <span class="sample-type">Design • Figma</span>
+      </h3>
+      <p class="sample-desc">Second iteration of Maxbit design system. Refinement of trading interface and user flows based on stakeholder feedback and feature updates.</p>
+      <a href="https://www.figma.com/design/PspGsHaN9tBw4LACmKA951/Maxbit---UI-Design--Sue---Copy-" class="sample-link" target="_blank">View in Figma →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">POPG Wallet & Rewards
+        <span class="sample-type">Design • Figma</span>
+      </h3>
+      <p class="sample-desc">Wallet and reward system UI design for blockchain product. Focus on clarity of financial transactions and incentive communication.</p>
+      <a href="https://www.figma.com/design/1BSBLDvtBf3i1J59kTGr3D/POPG-Wallet---Reward-System--Copy-" class="sample-link" target="_blank">View in Figma →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Company Profile
+        <span class="sample-type">Design • Canva</span>
+      </h3>
+      <p class="sample-desc">Professional company profile document showcasing brand identity, company values, team expertise, and services — used for investor and partner communications.</p>
+      <a href="https://canva.link/3a39viim92ys482" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Proposal Template
+        <span class="sample-type">Design • Canva</span>
+      </h3>
+      <p class="sample-desc">Professional proposal template for client presentations. Maintains brand consistency and visual hierarchy throughout the document.</p>
+      <a href="https://canva.link/j8nssiesq9c67ig" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Team CV Summary
+        <span class="sample-type">Design • Canva</span>
+      </h3>
+      <p class="sample-desc">Curated compilation of team member CVs for recruitment and stakeholder communications.</p>
+      <a href="https://canva.link/a45fios1gvi9g10" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">SparkMinds Website
+        <span class="sample-type">Web • Live</span>
+      </h3>
+      <p class="sample-desc">Company website featuring company overview, services, team, technical expertise, and contact information. Built with WordPress.</p>
+      <a href="https://sparkminds.net" class="sample-link" target="_blank">Visit Website →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">DQ Smart Website
+        <span class="sample-type">Web • Live</span>
+      </h3>
+      <p class="sample-desc">Supported layout design and content strategy from draft to launch. Full website build-out with WordPress and strategic content architecture.</p>
+      <a href="https://dqsmart.vn" class="sample-link" target="_blank">Visit Website →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-label">History</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Oct 2024 – Apr 2026</div>
+        <div class="exp-company">Accor Plus</div>
+        <div class="exp-industry">Hospitality & Travel Loyalty</div>
+      </div>
+      <div>
+        <div class="exp-title">Marketing Executive</div>
+        <p style="font-size:14px;color:var(--ink2);margin-bottom:1rem">Vietnam & Philippines markets</p>
+        <ul class="exp-bullets">
+          <li>Planned and executed <strong>integrated campaigns</strong> across Vietnam & Philippines markets driving member acquisition, engagement, and retention.</li>
+          <li>Grew <span class="exp-highlight">Zalo OA follower base by 350%</span> through personalised broadcast strategies developed with the Member Care team.</li>
+          <li>Ran <strong>CRM initiatives</strong> across email, website offers, and social — contributing to 3–5% improvements in open and click-through rates.</li>
+          <li>Coordinated <strong>influencer campaigns</strong> in Vietnam & Philippines for both sales-driven and brand awareness goals.</li>
+          <li>Co-organised member events with <span class="exp-highlight">~90% fully booked</span>, strengthening loyalty and brand affinity.</li>
+          <li>Localised campaign messaging for each market while maintaining consistency with global brand guidelines across all touchpoints.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2023 – Sep 2024</div>
+        <div class="exp-company">SparkMinds J.S.C</div>
+        <div class="exp-industry">Technology</div>
+      </div>
+      <div>
+        <div class="exp-title">Marketing & Operations Executive · UI/UX Designer</div>
+        <ul class="exp-bullets">
+          <li><strong>Built brand guidelines from scratch</strong> — ensuring consistent messaging and visual identity across all digital channels.</li>
+          <li>Led <strong>content strategy</strong>: SEO blogs (1,000+ words), social media, email campaigns, and video scripting.</li>
+          <li>Managed <strong>WordPress website</strong> — improving content structure and user experience to drive organic visibility.</li>
+          <li>Planned and executed <strong>B2B multi-channel campaigns</strong> aligned with sales and business objectives.</li>
+          <li>Designed <strong>UI/UX for Blockchain products</strong> in collaboration with Project Managers, Business Analysts, and Technical teams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2022 – Feb 2023</div>
+        <div class="exp-company">TRG International</div>
+        <div class="exp-industry">Technology & Software</div>
+      </div>
+      <div>
+        <div class="exp-title">Junior General Marketing</div>
+        <ul class="exp-bullets">
+          <li>Supported <strong>digital marketing, CRM</strong>, and email campaigns using HubSpot and Mailchimp.</li>
+          <li>Managed website content and landing pages on WordPress.</li>
+          <li>Wrote SEO and marketing-focused long-form content (1,000+ words).</li>
+          <li>Coordinated <strong>events with up to 250 participants</strong>, including partners and senior stakeholders.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2022 – 2023</div>
+        <div class="exp-company">Freelance</div>
+        <div class="exp-industry">B2B · Education · Beauty</div>
+      </div>
+      <div>
+        <div class="exp-title">Project-based Marketing</div>
+        <ul class="exp-bullets">
+          <li>Delivered <strong>digital marketing, content</strong>, and social media strategies across multiple industries.</li>
+          <li>Supported <strong>educational product launches</strong>, PR activities, and promotional campaigns.</li>
+          <li>Managed website and landing page content on WordPress across different business categories.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2019 – 2022</div>
+        <div class="exp-company">UEH University</div>
+        <div class="exp-industry">Education</div>
+      </div>
+      <div>
+        <div class="exp-title">Bachelor of Economics</div>
+        <p style="font-size:14px;color:var(--ink2)">Specialising in Applied Economics & Marketing. GPA: 3.296/4.0</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-label">Skills</span>
+    <h2 class="section-title">What I bring</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">Brand & Strategy</div>
+      <div class="skill-list">
+        <span>Brand guidelines & identity</span>
+        <span>Campaign strategy & planning</span>
+        <span>Market localisation</span>
+        <span>Brand communication</span>
+        <span>Audience & market insights</span>
+        <span>Strategic positioning</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Content & Channels</div>
+      <div class="skill-list">
+        <span>Social media (Facebook, IG, Zalo)</span>
+        <span>SEO & long-form content</span>
+        <span>Email marketing & CRM</span>
+        <span>Influencer marketing</span>
+        <span>Paid & organic campaigns</span>
+        <span>Website management</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Execution & Operations</div>
+      <div class="skill-list">
+        <span>Lifecycle marketing</span>
+        <span>Performance analysis</span>
+        <span>Event coordination</span>
+        <span>Cross-functional collaboration</span>
+        <span>UI/UX design support</span>
+        <span>Brand guideline implementation</span>
+      </div>
+    </div>
+  </div>
+  <div class="tools-row">
+    <div class="tools-label">Tools & Platforms</div>
+    <div class="tools-items">
+      <span class="tool-badge">Salesforce Marketing Cloud</span>
+      <span class="tool-badge">HubSpot</span>
+      <span class="tool-badge">Mailchimp</span>
+      <span class="tool-badge">WordPress</span>
+      <span class="tool-badge">Figma</span>
+      <span class="tool-badge">Canva</span>
+      <span class="tool-badge">Adobe Photoshop</span>
+      <span class="tool-badge">Meta Business Suite</span>
+      <span class="tool-badge">Asana</span>
+      <span class="tool-badge">Trello</span>
+      <span class="tool-badge">Yellowfin</span>
+      <span class="tool-badge">Google Analytics</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-headline">Let's build<br>something<br><em>worth noticing</em>.</h2>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:pthaoon@gmail.com">
+        <div>
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">pthaoon@gmail.com</span>
+        </div>
+      </a>
+      <a class="contact-link" href="tel:+84909650586">
+        <div>
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-val">+84 909 650 586</span>
+        </div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/thaothiphuongnguyen/" target="_blank">
+        <div>
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">View profile →</span>
+        </div>
+      </a>
+      <div style="padding:1rem 1.25rem;border:0.5px solid var(--rule);font-size:13px;color:var(--ink3)">
+        📍 Ho Chi Minh City · Open to brand marketing & generalist roles
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Thao Nguyen (Audrey)</div>
+  <div class="footer-note">Brand Marketing Portfolio · 2026</div>
+</footer>
+
+</body>
+</html>
